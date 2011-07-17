@@ -62,6 +62,8 @@
 #include "version.h"
 #endif
 
+#define VERSION "3.01"
+
 namespace tesseract {
 
 // Minimum sensible image size to be worth running tesseract.
