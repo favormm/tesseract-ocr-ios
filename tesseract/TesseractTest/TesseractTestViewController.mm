@@ -62,12 +62,27 @@ using namespace tesseract;
                                                  NSLog( @"%@", result );
                                              }];
 
+    [recognizer_ attemptCharacterRecognitionOnImage:[UIImage imageNamed:@"first-enhanced.jpg"] 
+                                             result:^(NSString *result) {
+                                                 NSLog( @"%@", result );
+                                             }];
+
     [recognizer_ attemptCharacterRecognitionOnImage:[UIImage imageNamed:@"second.jpg"] 
+                                             result:^(NSString *result) {
+                                                 NSLog( @"%@", result );
+                                             }];
+    
+    [recognizer_ attemptCharacterRecognitionOnImage:[UIImage imageNamed:@"second-enhanced.jpg"] 
                                              result:^(NSString *result) {
                                                  NSLog( @"%@", result );
                                              }];
 
     [recognizer_ attemptCharacterRecognitionOnImage:[UIImage imageNamed:@"third.jpg"] 
+                                             result:^(NSString *result) {
+                                                 NSLog( @"%@", result );
+                                             }];
+
+    [recognizer_ attemptCharacterRecognitionOnImage:[UIImage imageNamed:@"third-enhanced.jpg"] 
                                              result:^(NSString *result) {
                                                  NSLog( @"%@", result );
                                              }];
