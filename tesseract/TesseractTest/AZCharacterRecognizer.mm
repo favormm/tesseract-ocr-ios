@@ -32,7 +32,7 @@
         if( dataPath_ ) {
             tesseract_ = new tesseract::TessBaseAPI();
             
-            self.tesseract->Init( [dataPath_ UTF8String], [language UTF8String], tesseract::OEM_TESSERACT_CUBE_COMBINED );
+            self.tesseract->Init( [dataPath_ UTF8String], [language UTF8String], tesseract::OEM_DEFAULT );
         }
     }
     return self;
