@@ -7,12 +7,12 @@
 //
 
 #import "AZVideoCaptureController.h"
-
+#import "AZCharacterRecognizer.h"
 
 @interface TesseractTestViewController : UIViewController<AZVideoCaptureControllerDelegate> {
  @protected
     AZVideoCaptureController* videoController_;
-    void* tesseract_;
+    AZCharacterRecognizer* recognizer_;
 }
 
 @end

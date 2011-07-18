@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		90068E4913D3991700C80B6D /* ocrtest.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 90068E4813D3991700C80B6D /* ocrtest.jpg */; };
+		90068E4E13D39F4500C80B6D /* third.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 90068E4B13D39F4500C80B6D /* third.jpg */; };
+		90068E4F13D39F4500C80B6D /* second.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 90068E4C13D39F4500C80B6D /* second.jpg */; };
+		90068E5013D39F4500C80B6D /* first.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 90068E4D13D39F4500C80B6D /* first.jpg */; };
+		90068E5313D3A5A700C80B6D /* AZCharacterRecognizer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 90068E5213D3A5A700C80B6D /* AZCharacterRecognizer.mm */; };
 		9078AD0713D207B4000AB811 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9078AD0613D207B4000AB811 /* Foundation.framework */; };
 		9078AD1A13D2083B000AB811 /* apitypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 9078AD1113D2083B000AB811 /* apitypes.h */; };
 		9078AD1B13D2083B000AB811 /* baseapi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9078AD1213D2083B000AB811 /* baseapi.cpp */; };
@@ -738,6 +743,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		90068E4813D3991700C80B6D /* ocrtest.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ocrtest.jpg; sourceTree = "<group>"; };
+		90068E4B13D39F4500C80B6D /* third.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = third.jpg; sourceTree = "<group>"; };
+		90068E4C13D39F4500C80B6D /* second.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = second.jpg; sourceTree = "<group>"; };
+		90068E4D13D39F4500C80B6D /* first.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = first.jpg; sourceTree = "<group>"; };
+		90068E5113D3A5A700C80B6D /* AZCharacterRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZCharacterRecognizer.h; sourceTree = "<group>"; };
+		90068E5213D3A5A700C80B6D /* AZCharacterRecognizer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AZCharacterRecognizer.mm; sourceTree = "<group>"; };
 		9078AD0313D207B4000AB811 /* libtesseract.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libtesseract.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9078AD0613D207B4000AB811 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9078AD0A13D207B4000AB811 /* tesseract-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "tesseract-Prefix.pch"; sourceTree = "<group>"; };
@@ -2383,6 +2394,8 @@
 		9078B6A013D21768000AB811 /* TesseractTest */ = {
 			isa = PBXGroup;
 			children = (
+				90068E5113D3A5A700C80B6D /* AZCharacterRecognizer.h */,
+				90068E5213D3A5A700C80B6D /* AZCharacterRecognizer.mm */,
 				9078B6B713D217D0000AB811 /* AZVideoCaptureController.h */,
 				9078B6B613D217D0000AB811 /* AZVideoCaptureController.mm */,
 				9078B6A913D21768000AB811 /* TesseractTestAppDelegate.h */,
@@ -2398,6 +2411,10 @@
 		9078B6A113D21768000AB811 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				90068E4D13D39F4500C80B6D /* first.jpg */,
+				90068E4C13D39F4500C80B6D /* second.jpg */,
+				90068E4B13D39F4500C80B6D /* third.jpg */,
+				90068E4813D3991700C80B6D /* ocrtest.jpg */,
 				90F254E013D22FF900E44E2F /* tessdata */,
 				90F254DE13D22F1200E44E2F /* eurotext.tif */,
 				90F254E213D2326F00E44E2F /* phototest.tif */,
@@ -2812,6 +2829,10 @@
 				90F254DF13D22F1200E44E2F /* eurotext.tif in Resources */,
 				90F254E113D22FF900E44E2F /* tessdata in Resources */,
 				90F254E313D2326F00E44E2F /* phototest.tif in Resources */,
+				90068E4913D3991700C80B6D /* ocrtest.jpg in Resources */,
+				90068E4E13D39F4500C80B6D /* third.jpg in Resources */,
+				90068E4F13D39F4500C80B6D /* second.jpg in Resources */,
+				90068E5013D39F4500C80B6D /* first.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3236,6 +3257,7 @@
 				9078B6AB13D21768000AB811 /* TesseractTestAppDelegate.m in Sources */,
 				9078B6AF13D21768000AB811 /* TesseractTestViewController.mm in Sources */,
 				9078B6B813D217D0000AB811 /* AZVideoCaptureController.mm in Sources */,
+				90068E5313D3A5A700C80B6D /* AZCharacterRecognizer.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

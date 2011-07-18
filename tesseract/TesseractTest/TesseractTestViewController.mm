@@ -16,11 +16,11 @@ using namespace tesseract;
 - (id)initWithNibName:(NSString*)nibName bundle:(NSBundle*)bundle {
     self = [super initWithNibName:nibName bundle:bundle];
     if( self ) {
-        videoController_ = [[AZVideoCaptureController alloc] initWithDelegate:self cameraPosition:AVCaptureDevicePositionBack capturePreset:kAZCaptureSessionPresetMedium];
-        tesseract_ = new TessBaseAPI();
-        
         NSString* tessdataPath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"tessdata"];
-        ((TessBaseAPI*)tesseract_)->Init( [tessdataPath UTF8String], NULL );
+
+        recognizer_ = [[AZCharacterRecognizer alloc] initWithTesseractDataPath:tessdataPath language:@"eng"];
+        [recognizer_ setWhitelist:@"0123456789#> "];
+
     }
     return self;
 }
@@ -41,9 +41,9 @@ using namespace tesseract;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    CALayer* previewLayer = videoController_.previewLayer;
-//    previewLayer.frame = self.view.layer.bounds;
-//    [self.view.layer addSublayer:previewLayer];
+    CALayer* previewLayer = videoController_.previewLayer;
+    previewLayer.frame = self.view.layer.bounds;
+    [self.view.layer addSublayer:previewLayer];
 }
 
 - (void)viewDidUnload {
@@ -56,28 +56,21 @@ using namespace tesseract;
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
-    [videoController_ startCapture];
-//    CGImageRef image = [UIImage imageNamed:@"phototest.tif"].CGImage;
-//    
-//    CFDataRef imageData = CGDataProviderCopyData( CGImageGetDataProvider( image ) );
-//    
-//    ((TessBaseAPI*)tesseract_)->SetImage( (const unsigned char*)CFDataGetBytePtr( imageData ), CGImageGetWidth( image ), CGImageGetHeight( image ), CGImageGetBitsPerPixel( image ) / 8, CGImageGetBytesPerRow( image ) );
-//    
-//    NSTimeInterval start = [NSDate timeIntervalSinceReferenceDate];
-//    
-//    const char* utf8 = ((TessBaseAPI*)tesseract_)->GetUTF8Text();
-//    if( utf8 ) {
-//        NSString* text = [NSString stringWithCString:utf8 encoding:NSUTF8StringEncoding];
-//        NSLog( @"Text: %@", text );
-//    }
-//    
-//    NSTimeInterval end = [NSDate timeIntervalSinceReferenceDate];
-//    
-//    CFRelease( imageData );
-//    
-//    NSLog( @"Time: %.0f seconds", end - start );
 
+    [recognizer_ attemptCharacterRecognitionOnImage:[UIImage imageNamed:@"first.jpg"] 
+                                             result:^(NSString *result) {
+                                                 NSLog( @"%@", result );
+                                             }];
+
+    [recognizer_ attemptCharacterRecognitionOnImage:[UIImage imageNamed:@"second.jpg"] 
+                                             result:^(NSString *result) {
+                                                 NSLog( @"%@", result );
+                                             }];
+
+    [recognizer_ attemptCharacterRecognitionOnImage:[UIImage imageNamed:@"third.jpg"] 
+                                             result:^(NSString *result) {
+                                                 NSLog( @"%@", result );
+                                             }];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -98,20 +91,6 @@ using namespace tesseract;
 // MARK: AZVideoCaptureControllerDelegate
 - (void)videoCaptureController:(AZVideoCaptureController*)controller didCaptureFrame:(UIImage*)image {
     NSLog( @"%@", NSStringFromSelector(_cmd) );
-    
-//    if( image ) {
-//        CFDataRef imageData = CGDataProviderCopyData( CGImageGetDataProvider( image.CGImage ) );
-//        
-//        ((TessBaseAPI*)tesseract_)->SetImage( (const unsigned char*)CFDataGetBytePtr( imageData ), (int)image.size.width, (int)image.size.height, 4, (int)image.size.width * 4 );
-//        
-//        const char* utf8 = ((TessBaseAPI*)tesseract_)->GetUTF8Text();
-//        if( utf8 ) {
-//            NSString* text = [NSString stringWithCString:utf8 encoding:NSUTF8StringEncoding];
-//            NSLog( @"Text: %@", text );
-//        }
-//        
-//        CFRelease( imageData );
-//    }
 }
 
 - (void)videoCaptureControllerWillCaptureFrame:(AZVideoCaptureController*)controller {
